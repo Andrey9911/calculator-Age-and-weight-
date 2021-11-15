@@ -1,0 +1,33 @@
+body{background-color: blueviolet;}
+
+a,
+h2,
+svg{
+    margin: 10px 0px;
+    font-size: 50px;
+    color: blueviolet;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+a{text-decoration: none;}
+#header{
+    justify-content: center;
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    
+}
+#app{
+    width: 60%;
+    height: 500px;
+    padding: 10px 50px;
+    border-radius: 0px 0px 20px 20px;
+    background-color: white;
+    margin: auto;
+    position: relative;
+    top: -10px;
+    text-align: center;
+}
+
+
+
