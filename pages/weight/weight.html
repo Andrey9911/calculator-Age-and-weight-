@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style/style.css">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../../../locator/Drag.js/style.css"> -->
+    <script src="../../../locator/Drag.js/blyde.min.js"></script>
+	<script src="../../../locator/Drag.js/dist/drag.min.js"></script>
+	<script src="../../../locator/Drag.js/demo.min.js"></script>
+</head>
+
+<body >
+    <div id="app">
+        <div id="header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" v-on:click='str' height="40" fill="currentColor" class="bi str bi-caret-left" viewBox="0 0 16 16">
+                <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+                <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+            </svg>
+            <h2>Weight</h2>
+        </div>
+        <div id="content">
+            <form action="" id="w_h">
+                <div id="weight">
+                    <h3>kg</h3>
+                    <input type="text" name=""  id="w" v-on:input='getw_h' maxlength="4">
+                </div>
+                <div id="height">
+                    <h3>cm</h3>
+                    <input type="text" name="" id="h" v-on:input='getw_h' maxlength="4">
+                </div>
+                <div id="warning_content" v-bind:class='{active: isActive, notActive: not}'>
+                    <div id="warning" >
+                        <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                        </svg>
+                        <h3 style="color: red;">{{warning}}</h3>
+                    </div>
+                </div>
+                
+                <div id="sub" v-on:click='go'>
+                    <h3>Go!</h3>
+                </div>
+            </form>
+            <div id="card" @click='drag'  class="centerItem item">
+                <div id="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="i1  bi bi-check-circle-fill" viewBox="0 0 16 16" v-if='z === 1'>
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="i2  bi bi-x-circle-fill" viewBox="0 0 16 16" v-else-if='z === 2'>
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="i3 bi bi-question-circle-fill" viewBox="0 0 16 16" v-else-if='z === 3'>
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                    </svg>
+                </div>
+                <div id="text">
+                    <div class="t1 " v-if='z == 1'>Normal</div>
+                    <div class="t2"  v-else-if='z == 2'>middle</div>
+                    <div class="t3" v-else-if='z == 3'>Not Normal</div>
+                </div>
+                <div id="line">
+                    <!-- <div id="x"></div> -->
+                    <div class="line_collect green"></div>
+                    <div class="line_collect yellow"></div>
+                    <div class="line_collect red"></div>
+                </div>
+            </div>
+            <div  class="cardNotInPlace"
+            id="restoreItemBtn"
+            v-bind:style='{display: isDrag}' 
+            @click='notDrag'>
+                нажми для возвращения
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="../../javaScript/main.js"></script>
+    
+</body>
+</html>

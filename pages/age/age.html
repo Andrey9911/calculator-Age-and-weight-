@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!--  -->
     <div id="app">
         <div id="header">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" v-on:click='str' height="40" fill="currentColor" class="bi str bi-caret-left" viewBox="0 0 16 16">
@@ -20,20 +21,20 @@
             <h2>Age</h2>
         </div>
         <div id="content">
-            <form action="#">
+            <form action="">
                 <input type="date" name="" id="date">
             </form>
-            <div  id="main">
+            <div id="main">
                 <div class="box_age">
-                    <h3 v-bind:style='borderBottom: bb'>Old Year</h3>    
+                    <h3 v-bind:style='{borderBottom: bb + "px"}'>Old Year</h3>    
                     <h2 class="num"></h2>
                 </div>
                 <div class="box_age">
-                    <h3 v-bind:style='borderBottom: bb'>Next B.D</h3>    
+                    <h3 v-bind:style='{borderBottom: bb + "px"}'>Next B.D</h3>    
                     <h2 class="num"></h2>
                 </div>
                 <div class="box_age">
-                    <h3 v-bind:style='borderBottom: bb'>Back B.D</h3>    
+                    <h3 v-bind:style='{borderBottom: bb + "px"}'>Back B.D</h3>    
                     <h2 class="num"></h2>
                 </div>
             </div>

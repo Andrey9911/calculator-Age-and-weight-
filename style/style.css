@@ -10,6 +10,7 @@ svg{
     font-weight: bold;
 }
 h3{
+    margin: auto;
     color: blueviolet;
     font-family: sans-serif;
     font-weight: bold;
@@ -17,11 +18,18 @@ h3{
 }
 #content,
 #header,
-#main{
+#main,
+#weight,
+#height{
     width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#weight,
+#height,
+#sub{
+    margin: 25px 0px;
 }
 svg{
     margin-right: 10px;
@@ -57,6 +65,7 @@ a{text-decoration: none;}
     margin-bottom: 80px;  
 }
 #app{
+    display: block;
     width: 60%;
     height: 500px;
     padding: 10px 50px;
@@ -69,6 +78,7 @@ a{text-decoration: none;}
 }
 
 #content form{
+    position: relative;
     max-width: fit-content;
     margin-right: 30px;
 }
@@ -88,6 +98,110 @@ form input {
     margin: 0px 10px;
     
 }
+#card{
+    font-size: 30px;
+    max-width: fit-content;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #575757;
+    margin: 20px 0px 50px 10%;
+    backdrop-filter: blur(5px);
+}
+#card:hover{
+    cursor: move;
+}
+.cardNotInPlace{
+    border: dashed 3px #9e009e;
+    border-radius: 7px;
+    width: 20%;
+    height: 70px;
+    position: absolute;
+    top: 200px;
+    right: 150px;
+}
+#line{
+    display: flex;
+    margin-top: 30px;
+    position: relative;
+}
+
+.line_collect{
+    width: 53px;
+    height: 10px;
+    margin: 0px 5px 0px 0px;
+    border-radius: 10px;
+    
+}
+#x{
+    position: absolute;
+    top: -5px;
+    background-color: #9e009e;
+    width: 15px;
+    height: 25px;
+    border-radius: 30%;
+}
+.green{background-color: green;}
+.yellow{background-color: rgb(255, 255, 0);}
+.red{background-color: #d30000;}
+
+.i1,.t1{color: green;}
+.i2,.t2{color: rgb(197, 184, 0);}
+.i3,.t3{color: red;}
+
+#icon{
+    padding: 0px 60px;
+}
+#text{
+    margin: 20px 0px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+/* .i1,.i2,.i3,.t1,.t2,.t3,#line{display: none;} */
+
+.line_collect:last-child{
+    margin: 0px;
+}
+.notActive{
+    display: none;
+}
+.active{
+    /* animation: block_rezult ease-in 2s;
+    opacity: 1; */
+    display: block;
+}
+
+#warning{
+    position: absolute;
+    
+    top: 122px;
+    left: 70px;
+    color: red;
+    display: flex;
+    align-items: center;
+}
+#w_h{
+    width: 100px;
+}
+#w_h input{
+    width: 70px;
+    margin: 0px 5px;
+}
+#sub{
+    
+    font-family: sans-serif;
+    font-size: 25px;
+    border-radius: 7px;
+    width: fit-content;
+}
+#sub:hover{
+    cursor: pointer;
+    text-shadow: 0px 0px 2px #8a2be2;
+    transition: 0.3s all ;
+    animation: go 0.5s ease-in;
+    
+}
+
 @keyframes linehover {
     0%{display: block;width: 0px;}
     /* 50%{display: block;width: 50px;} */
@@ -103,7 +217,10 @@ form input {
         position: absolute;
         top: 11px;
         left: 30px;
-    }
-    
+    }  
+}
+@keyframes go{
+    0%{transform: translateY(0);}
+    100%{transform: translateY(-5px);}
 }
 
