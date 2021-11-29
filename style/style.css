@@ -93,7 +93,7 @@ form input {
 .box_age {
     width: 100px;
     box-shadow: 0px 0px 10px 0px #8a2be2;
-    padding: 1px 10px;
+    padding: 5px 10px;
     border-radius: 10px;
     margin: 0px 10px;
     
@@ -114,11 +114,11 @@ form input {
 .cardNotInPlace{
     border: dashed 3px #9e009e;
     border-radius: 7px;
-    width: 20%;
+    width: 15%;
     height: 70px;
     position: absolute;
     top: 200px;
-    right: 150px;
+    right: 250px;
 }
 #line{
     display: flex;
@@ -196,12 +196,20 @@ form input {
 }
 #sub:hover{
     cursor: pointer;
-    text-shadow: 0px 0px 2px #8a2be2;
-    transition: 0.3s all ;
-    animation: go 0.5s ease-in;
+    /* text-shadow: 0px 0px 2px #8a2be2; */
+    transition: 1s all ;
+    /* animation: go 0.5s ease-in-out; */
+    transform: scale(1.3);
     
 }
-
+#main_birsday{
+    /* width: 100px; */
+    font-size: 20px;
+    box-shadow: 0px 0px 10px 0px #8a2be2;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 0px 10px;
+}
 @keyframes linehover {
     0%{display: block;width: 0px;}
     /* 50%{display: block;width: 50px;} */
@@ -219,8 +227,8 @@ form input {
         left: 30px;
     }  
 }
-@keyframes go{
-    0%{transform: translateY(0);}
-    100%{transform: translateY(-5px);}
-}
+/* @keyframes go{
+    0%{transform: scale(0px);}
+    100%{transform: scale(1.2);}
+} */
 

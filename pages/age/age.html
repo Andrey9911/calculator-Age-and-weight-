@@ -22,21 +22,36 @@
         </div>
         <div id="content">
             <form action="">
-                <input type="date" name="" id="date">
+                <input type="date" name="" id="date" v-model='year_bir'>
+                <div id="sub" v-on:click='goDate'>
+                    <h3>Go!</h3>
+                </div>
             </form>
-            <div id="main">
+            <div id="warning_content" v-bind:class='{active: isActive, notActive: not}'>
+                <div id="warning" >
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                    </svg>
+                    <h3 style="color: red;">{{warning}}</h3>
+                </div>
+            </div>
+            <div id="main" v-if='isDate'>
                 <div class="box_age">
-                    <h3 v-bind:style='{borderBottom: bb + "px"}'>Old Year</h3>    
-                    <h2 class="num"></h2>
+                    <h3 >Old Year</h3>    
+                    <h2 v-if='rezult.rez != 0' class="num"> {{rezult.rez}} </h2>
+                   
                 </div>
                 <div class="box_age">
-                    <h3 v-bind:style='{borderBottom: bb + "px"}'>Next B.D</h3>    
-                    <h2 class="num"></h2>
+                    <h3 >Next B.D</h3>    
+                    <h2 class="num" v-if='rezult.rez2 != 0'> {{rezult.rez2}} </h2>
                 </div>
                 <div class="box_age">
-                    <h3 v-bind:style='{borderBottom: bb + "px"}'>Back B.D</h3>    
-                    <h2 class="num"></h2>
+                    <h3 >Back B.D</h3>    
+                    <h2 class="num" v-if='rezult.rez3 != 0'> {{rezult.rez3}} </h2>
                 </div>
+            </div>
+            <div id="main_birsday" v-else>
+                <h3>you turned twenty today {{ rezult.rez}}!!! </h3>
             </div>
         </div>
     </div>
