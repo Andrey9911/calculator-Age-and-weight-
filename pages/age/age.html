@@ -37,7 +37,8 @@
             </div>
             <div id="main" v-if='isDate'>
                 <div class="box_age">
-                    <h3 >Old Year</h3>    
+                    <h3 >Old Year</h3>
+                    
                     <h2 v-if='rezult.rez != 0' class="num"> {{rezult.rez}} </h2>
                    
                 </div>
@@ -51,7 +52,9 @@
                 </div>
             </div>
             <div id="main_birsday" v-else>
-                <h3>you turned twenty today {{ rezult.rez}}!!! </h3>
+                <h3 v-if='rezult.rez == 0'>Happy birsday!!</h3>
+                <h3 v-else>you turned twenty today {{ rezult.rez}}!!! </h3>
+
             </div>
         </div>
     </div>

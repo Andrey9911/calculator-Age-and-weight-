@@ -70,11 +70,11 @@ const app = new Vue({
                     this.rez = this.h - this.w
                     rez = this.rez
                     console.log(rez)
-                    if(rez > 150){
+                    if((rez > 150 || rez <= 50) || (this.w >= 210 || this.h >= 210) || (this.w <= 10 || this.h <= 10)){
                         this.not = false
                         this.isActive = true
 
-                        this.warning = 'некоректные данные'
+                        return this.warning = 'некоректные данные'
                     }
                     else if(rez < 85 || rez > 120) this.z = 3
 
